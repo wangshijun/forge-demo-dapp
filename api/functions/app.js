@@ -17,6 +17,7 @@ const { handlers, wallet } = require('../libs/auth');
 const loginAuth = require('../routes/auth/login');
 const paymentAuth = require('../routes/auth/payment');
 const checkinAuth = require('../routes/auth/checkin');
+const luckyAuth = require('../routes/auth/lucky');
 const sessionRoutes = require('../routes/session');
 const paymentsRoutes = require('../routes/payments');
 
@@ -95,6 +96,7 @@ const router = express.Router();
 handlers.attach(Object.assign({ app: router }, loginAuth));
 handlers.attach(Object.assign({ app: router }, checkinAuth));
 handlers.attach(Object.assign({ app: router }, paymentAuth));
+handlers.attach(Object.assign({ app: router }, luckyAuth));
 sessionRoutes.init(router);
 paymentsRoutes.init(router);
 
